@@ -3,20 +3,14 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "dev": "rsbuild dev --open",
+    "dev": "pnpm --filter \"./packages/*\"  dev",
     "build": "rsbuild build",
-    "preview": "rsbuild preview"
-  },
-  "dependencies": {
-    "@module-federation/enhanced": "^0.1.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "preview": "rsbuild preview",
+    "list:all": "pnpm list --filter \"*\" --only-projects --depth -1 --json",
+    "list:changed": "pnpm list --filter \"...[origin/master]\" --only-projects --depth -1 --json"
   },
   "devDependencies": {
-    "@rsbuild/core": "^0.5.9",
-    "@rsbuild/plugin-react": "^0.5.9",
-    "@types/react": "^18.2.71",
-    "@types/react-dom": "^18.2.22",
-    "typescript": "^5.4.2"
+    "concurrently": "^8.2.2",
+    "wait-on": "^7.2.0"
   }
 }
